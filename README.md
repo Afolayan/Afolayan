@@ -14,3 +14,9 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+- 🔭 I’m currently working on
+    * Carbon: Working as the Android Engineer on the Carbon app at One Finance and Investment
+- 📫 How to reach me: 
+    * [LinkedIn](https://www.linkedin.com/in/afolayanseyi)
+    * [My Website](https://www.afolayanseyi.com)
+- 😄 Pronouns: **Him/His/he**
