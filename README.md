@@ -15,7 +15,6 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 - 🔭 I’m currently working on
-    * Kudi Inc: Working on the Kudi agent android app
     * Previously at Carbon: Worked as the Android Engineer on the Carbon app at One Finance and Investment
 - 📫 How to reach me: 
     * [LinkedIn](https://www.linkedin.com/in/afolayanseyi)
