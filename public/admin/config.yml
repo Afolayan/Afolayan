@@ -1,5 +1,6 @@
 backend:
-  name: Afolayan
+  name: github
+  repo: Afolayan/Afolayan
   branch: pBlog
 
 media_folder: "src/assets"
