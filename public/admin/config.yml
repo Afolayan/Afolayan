@@ -1,6 +1,6 @@
 backend:
-  name: test-repo
-  branch: main # Check your branch name
+  name: Afolayan
+  branch: pBlog
 
 media_folder: "src/assets"
 public_folder: "/src/assets"

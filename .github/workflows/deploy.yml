@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [pBlog]
   workflow_dispatch:
 
 permissions:
@@ -19,8 +19,6 @@ jobs:
 
       - name: Install, build, and upload with Astro
         uses: withastro/action@v3
-        with:
-          path: personalBlog
 
   deploy:
     needs: build
