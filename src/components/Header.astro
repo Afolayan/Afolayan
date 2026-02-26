@@ -1,0 +1,43 @@
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header class="glass sticky top-0 z-50 px-4 py-2 mb-8">
+	<nav class="flex items-center justify-between max-w-6xl mx-auto">
+		<h2 class="text-xl font-bold m-0"><a href="/" class="no-underline">{SITE_TITLE}</a></h2>
+		<div class="internal-links flex gap-2">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+		</div>
+		<div class="social-links flex items-center gap-4">
+			<a href="#contact" class="btn btn-primary text-sm py-2 px-4">Hire Me</a>
+		</div>
+	</nav>
+</header>
+
+<style>
+	@reference "../styles/global.css";
+	header {
+		backdrop-filter: blur(12px);
+		border-bottom: 1px solid rgba(var(--gray), 0.1);
+	}
+	nav a {
+		@apply px-4 py-2 rounded-lg transition-all;
+	}
+	nav a:hover {
+		@apply bg-white/10;
+	}
+	nav a.active {
+		@apply text-primary font-bold bg-white/20;
+	}
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	}
+</style>
+
+
+

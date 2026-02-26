@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366f1;
+  --color-secondary: #ec4899;
+  --color-accent: #8b5cf6;
+  --color-glass: rgba(255, 255, 255, 0.1);
+  --color-glass-dark: rgba(0, 0, 0, 0.2);
+}
+
+:root {
+	--accent: #6366f1;
+	--accent-light: #a5b4fc;
+	--accent-dark: #4338ca;
+	--black: 15, 23, 42;
+	--gray: 100, 116, 139;
+	--gray-light: 241, 245, 249;
+	--gray-dark: 30, 41, 59;
+	--glass-bg: rgba(255, 255, 255, 0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: 248, 250, 252;
+		--gray: 148, 163, 184;
+		--gray-light: 30, 41, 59;
+		--gray-dark: 241, 245, 249;
+		--glass-bg: rgba(15, 23, 42, 0.8);
+	}
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZJhjp-EkA.woff2) format('woff2');
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	background: radial-gradient(circle at top right, #e0e7ff, #f8fafc);
+	background-attachment: fixed;
+	color: rgb(var(--gray-dark));
+	font-size: 18px;
+	line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background: radial-gradient(circle at top right, #13111c, #09090b);
+	}
+}
+
+main {
+	width: 900px;
+	max-width: calc(100% - 2em);
+	margin: auto;
+	padding: 4em 1em;
+}
+
+.glass {
+	background: var(--glass-bg);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animate-fade-in {
+	animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(10px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 0.5rem 0;
+	color: rgb(var(--black));
+	line-height: 1.2;
+    font-weight: 700;
+}
+
+h1 { font-size: 3.5rem; letter-spacing: -0.02em; }
+h2 { font-size: 2.25rem; margin-top: 2rem; }
+h3 { font-size: 1.5rem; }
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+a:hover {
+	color: var(--accent-dark);
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.75rem 1.5rem;
+	border-radius: 9999px;
+	font-weight: 600;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
+}
+
+.btn-primary {
+	background: var(--accent);
+	color: white !important;
+}
+
+.btn-primary:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+}
+
+.resume-section {
+    @apply mb-16;
+}
+
+.card {
+    @apply p-6 rounded-2xl border transition-all;
+    background: var(--glass-bg);
+    border-color: rgba(var(--gray), 0.1);
+}
+
+.card:hover {
+    @apply shadow-xl;
+    transform: translateY(-4px);
+}
+
+/* Base Head/Analytics styles if needed */

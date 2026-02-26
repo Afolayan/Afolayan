@@ -1,0 +1,139 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<BaseHead title={`${SITE_TITLE} | Digital Resume`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- Hero Section -->
+			<section class="resume-section animate-fade-in text-center py-12">
+				<div class="mb-6 inline-block p-1 rounded-full bg-gradient-to-tr from-primary to-secondary">
+					<div class="bg-gray-light dark:bg-gray-dark rounded-full p-2">
+                        <!-- Generic profile icon placeholder -->
+						<svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                        </svg>
+					</div>
+				</div>
+				<h1 class="mb-4">Jephthah <span class="text-primary italic">M.</span></h1>
+				<p class="text-xl max-w-2xl mx-auto text-gray opacity-90">
+					Passionate Full-Stack Developer & Technical Blogger building modern web experiences with focus on performance and minimalist design.
+				</p>
+				<div class="mt-8 flex justify-center gap-4">
+					<a href="#contact" class="btn btn-primary">Download Resume</a>
+					<a href="/blog" class="btn bg-white/10 border border-white/20">Read My Blog</a>
+				</div>
+			</section>
+
+			<!-- Experience Section -->
+			<section class="resume-section" id="experience">
+				<h2 class="mb-8 flex items-center gap-2">
+                    <span class="w-8 h-1 bg-primary rounded-full"></span>
+                    Work Experience
+                </h2>
+				<div class="space-y-6">
+					<div class="card">
+						<div class="flex justify-between items-start mb-2">
+							<h3 class="m-0">Senior Web Developer</h3>
+							<span class="text-sm font-semibold text-primary px-3 py-1 bg-primary/10 rounded-full">2023 — Present</span>
+						</div>
+						<p class="text-secondary font-medium mb-4">Tech Innovations Global</p>
+						<ul class="text-sm space-y-2 opacity-80 list-disc pl-4">
+							<li>Led the development of scalable React/Next.js applications for enterprise clients.</li>
+							<li>Optimized web performance, achieving a 40% reduction in TTI across major projects.</li>
+							<li>Mentored junior developers and implemented CI/CD best practices.</li>
+						</ul>
+					</div>
+					<div class="card">
+						<div class="flex justify-between items-start mb-2">
+							<h3 class="m-0">Full Stack Engineer</h3>
+							<span class="text-sm font-semibold text-gray px-3 py-1 bg-gray/10 rounded-full">2021 — 2023</span>
+						</div>
+						<p class="text-secondary font-medium mb-4">Creative Digital Solutions</p>
+						<ul class="text-sm space-y-2 opacity-80 list-disc pl-4">
+							<li>Developed and maintained RESTful APIs using Node.js and PostgreSQL.</li>
+							<li>Integrated third-party services for payments, authentication, and search.</li>
+							<li>Collaborated closely with designers to implement pixel-perfect user interfaces.</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Education Section -->
+			<section class="resume-section" id="education">
+				<h2 class="mb-8 flex items-center gap-2">
+                    <span class="w-8 h-1 bg-secondary rounded-full"></span>
+                    Education
+                </h2>
+				<div class="card">
+					<div class="flex justify-between items-start mb-2">
+						<h3 class="m-0">B.Sc. in Computer Science</h3>
+						<span class="text-sm font-semibold text-gray px-3 py-1 bg-gray/10 rounded-full">2017 — 2021</span>
+					</div>
+					<p class="opacity-80">University of Excellence, Global State</p>
+				</div>
+			</section>
+
+			<!-- Skills Section -->
+			<section class="resume-section" id="skills">
+				<h2 class="mb-8 flex items-center gap-2">
+                    <span class="w-8 h-1 bg-accent rounded-full"></span>
+                    Technical Skills
+                </h2>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+					<div class="p-4 glass rounded-xl text-center">
+						<span class="font-bold text-primary">Frontend</span>
+						<p class="text-xs mt-2 opacity-70">React, Vue, Astro, Tailwind</p>
+					</div>
+					<div class="p-4 glass rounded-xl text-center">
+						<span class="font-bold text-secondary">Backend</span>
+						<p class="text-xs mt-2 opacity-70">Node.js, Go, Python, SQL</p>
+					</div>
+					<div class="p-4 glass rounded-xl text-center">
+						<span class="font-bold text-accent">Cloud</span>
+						<p class="text-xs mt-2 opacity-70">AWS, Vercel, Docker, K8s</p>
+					</div>
+					<div class="p-4 glass rounded-xl text-center">
+						<span class="font-bold text-gray">Tools</span>
+						<p class="text-xs mt-2 opacity-70">Git, Figma, Jest, Playwright</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Section -->
+			<section class="resume-section mb-0" id="contact">
+				<div class="card bg-primary/5 border-primary/20 p-12 text-center">
+					<h2 class="mb-4">Get In Touch</h2>
+					<p class="max-w-md mx-auto mb-8 opacity-80">
+						Interested in working together or just want to say hi? My inbox is always open.
+					</p>
+					<form action="https://formspree.io/f/your-id" method="POST" class="max-w-md mx-auto space-y-4 text-left">
+						<div>
+							<label for="name" class="block text-xs font-bold uppercase mb-1 opacity-60">Full Name</label>
+							<input type="text" id="name" name="name" required class="w-full bg-white/5 border border-white/10 rounded-lg p-3 outline-none focus:border-primary/50" />
+						</div>
+						<div>
+							<label for="email" class="block text-xs font-bold uppercase mb-1 opacity-60">Email Address</label>
+							<input type="email" id="email" name="email" required class="w-full bg-white/5 border border-white/10 rounded-lg p-3 outline-none focus:border-primary/50" />
+						</div>
+						<div>
+							<label for="message" class="block text-xs font-bold uppercase mb-1 opacity-60">Message</label>
+							<textarea id="message" name="message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-lg p-3 outline-none focus:border-primary/50"></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary w-full justify-center">Send Message</button>
+					</form>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
