@@ -1,5 +1,5 @@
 backend:
-  name: Afolayan/Afolayan
+  name: Afolayan
   branch: pBlog
 
 media_folder: "src/assets"
