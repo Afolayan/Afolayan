@@ -1,16 +1,67 @@
 ---
-title: 'First post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
+title: 'Building a Personal Blog with Astro'
+description: 'A walkthrough of why I chose Astro for my personal blog and the key decisions that shaped this site.'
+pubDate: 'Feb 20 2026'
 heroImage: '/assets/blog/blog-placeholder-3.jpg'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+I recently rebuilt my personal blog using Astro, and I want to share the reasoning behind that choice and a few things I learned along the way.
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+## Why Astro?
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+When I started looking for a framework, my main requirements were simple: fast page loads, Markdown support for writing, and minimal JavaScript shipped to the browser. Astro checks all three boxes.
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+Astro generates static HTML by default. Unlike React-based frameworks that ship a JavaScript runtime to the client, Astro strips out all JS unless you explicitly opt in with client directives. For a content-heavy site like a blog, this means pages load almost instantly.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+## The Stack
+
+Here's what powers this site:
+
+- **Astro** for the framework and static site generation
+- **Tailwind CSS** for styling without writing custom CSS classes
+- **MDX** for blog posts that can embed components when needed
+- **RSS** and **Sitemap** integrations for discoverability
+
+The entire project structure is straightforward:
+
+```
+src/
+  content/blog/    # Markdown blog posts
+  components/      # Reusable Astro components
+  layouts/         # Page layouts
+  pages/           # Route-based pages
+  styles/          # Global CSS
+```
+
+## Content Collections
+
+Astro's content collections feature is one of its strongest selling points. You define a schema for your blog posts using Zod, and Astro validates every post at build time:
+
+```typescript
+import { defineCollection, z } from 'astro:content';
+
+const blog = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    heroImage: z.string().optional(),
+  }),
+});
+```
+
+If I forget a required field or use the wrong date format, the build fails with a clear error message. This catches mistakes before they reach production.
+
+## Performance Results
+
+After deploying, I ran Lighthouse and the results speak for themselves: 100 across the board for Performance, Accessibility, Best Practices, and SEO. That's the advantage of shipping zero JavaScript by default.
+
+## What I'd Do Differently
+
+If I were starting over, I'd set up image optimization from day one. Astro has a built-in `<Image>` component that handles responsive images and format conversion, but I initially used regular `<img>` tags and had to go back and update them.
+
+I'd also plan the content structure earlier. Moving blog posts between directories after you've published URLs is a pain.
+
+## Wrapping Up
+
+Astro is an excellent choice for content-focused sites. The developer experience is smooth, the output is fast, and the ecosystem is growing steadily. If you're thinking about starting a blog, give it a look.
