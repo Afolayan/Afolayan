@@ -1,31 +1,56 @@
 ---
-title: 'Using MDX'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jun 01 2024'
+title: 'Using MDX for Richer Blog Posts'
+description: 'How MDX lets you embed interactive components directly in your Markdown blog posts.'
+pubDate: 'Feb 05 2026'
 heroImage: '/assets/blog/blog-placeholder-5.jpg'
 ---
 
-This theme comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in your `astro.config.mjs` config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.
+One of the advantages of using Astro for this blog is MDX support. MDX is a format that lets you write JSX directly inside Markdown files, which means you can embed interactive components alongside your prose.
 
 ## Why MDX?
 
-MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into your Markdown content](https://docs.astro.build/en/guides/integrations-guide/mdx/#mdx-in-astro) for things like interactive charts or alerts.
+Standard Markdown is great for text-heavy content, but sometimes you need more. Maybe you want to include an interactive demo, a styled callout, or a reusable component that renders differently based on props.
 
-If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.
+MDX bridges that gap. You write Markdown as usual, and when you need a component, you import and use it inline:
 
-## Example
+```mdx
+import MyChart from './MyChart.astro';
 
-Here is how you import and use a UI component inside of MDX.  
-When you open this page in the browser, you should see the clickable button below.
+Here's some regular Markdown text.
 
-import HeaderLink from '../../components/HeaderLink.astro';
+<MyChart data={salesData} />
 
-<HeaderLink href="#" onclick="alert('clicked!')">
-	Embedded component in MDX
-</HeaderLink>
+And the text continues below the chart.
+```
 
-## More Links
+## When to Use MDX vs Plain Markdown
 
-- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
-- [Astro Usage Documentation](https://docs.astro.build/en/basics/astro-pages/#markdownmdx-pages)
-- **Note:** [Client Directives](https://docs.astro.build/en/reference/directives-reference/#client-directives) are still required to create interactive components. Otherwise, all components in your MDX will render as static HTML (no JavaScript) by default.
+For most blog posts, plain `.md` files are the better choice. They're simpler, faster to write, and have no JavaScript overhead. I use MDX only when a post genuinely needs embedded components — interactive examples, styled alerts, or data visualizations.
+
+A good rule of thumb: if the post reads fine as plain text, use Markdown. If it needs interactivity or custom rendering, reach for MDX.
+
+## Setting It Up in Astro
+
+Astro's MDX integration is straightforward. Add the plugin to your config:
+
+```javascript
+import mdx from '@astrojs/mdx';
+
+export default defineConfig({
+  integrations: [mdx()],
+});
+```
+
+Then create `.mdx` files in your content directory. Astro handles the compilation automatically.
+
+## A Note on Performance
+
+By default, Astro renders MDX components as static HTML with zero client-side JavaScript. If you need a component to be interactive in the browser, you add a client directive:
+
+```mdx
+<InteractiveWidget client:load />
+```
+
+This opt-in model keeps your pages fast. Only the components that genuinely need JavaScript will ship it.
+
+MDX is a powerful tool, but like any tool, it's best used deliberately. Start with plain Markdown and upgrade to MDX when you have a clear reason to.

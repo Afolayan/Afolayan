@@ -1,16 +1,55 @@
 ---
-title: 'Third post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 22 2022'
+title: 'Tools and Practices That Improved My Developer Workflow'
+description: 'A collection of tools, shortcuts, and habits that have made a measurable difference in how I write and ship code.'
+pubDate: 'Feb 10 2026'
 heroImage: '/assets/blog/blog-placeholder-2.jpg'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+Over the past few years I've iterated on my development workflow quite a bit. Some changes were small. Others fundamentally changed how I work. Here are the ones that stuck.
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+## Terminal Multiplexing
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+I resisted learning tmux for a long time because my IDE's built-in terminal felt "good enough." Then I started working with remote servers and realized I needed persistent sessions that survive disconnects.
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+Now I use tmux for everything — local development included. Being able to split panes, name sessions, and switch between project contexts without opening new terminal windows has eliminated a surprising amount of friction.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+The key bindings take a week or two to internalize, but once they're in muscle memory, you don't think about them anymore.
+
+## Git Aliases and Workflows
+
+I set up a handful of git aliases that I use daily:
+
+```bash
+[alias]
+  co = checkout
+  br = branch
+  st = status
+  lg = log --oneline --graph --decorate -20
+  wip = !git add -A && git commit -m 'wip'
+```
+
+The `wip` alias is particularly useful. When I need to switch branches quickly, I commit everything as a work-in-progress and come back to it later. It's faster than stashing, and the reflog keeps everything safe.
+
+I also adopted conventional commits (`feat:`, `fix:`, `chore:`) for all my projects. It seems like overhead at first, but it makes scanning git history much faster and enables automated changelog generation.
+
+## Linting and Formatting on Save
+
+This one sounds obvious, but setting up ESLint and Prettier to run on every file save was a game changer. I stopped thinking about code style entirely. The formatter handles it. I focus on logic.
+
+For new projects, I spend time upfront configuring these tools properly. The investment pays for itself within the first week.
+
+## Keyboard-Driven Navigation
+
+I made a deliberate effort to use the mouse less. This meant learning IDE keyboard shortcuts, using Vim motions in my editor, and navigating my operating system with hotkeys.
+
+The speed difference is real. More importantly, keeping your hands on the keyboard reduces context switching between "thinking" and "navigating." Your flow state is less likely to break.
+
+## Writing Things Down
+
+This isn't a tool, but it's the highest-impact practice on this list. I keep a simple text file where I jot down what I'm working on, what I've tried, and what's blocked. When debugging a tricky issue, this prevents me from going in circles.
+
+At the end of each day, I spend two minutes reviewing what I accomplished. This small habit has made me much better at estimating how long tasks actually take.
+
+## The Common Thread
+
+Every tool and practice here shares one quality: it reduces friction. The best workflow improvements are the ones you stop noticing because they've become automatic. Start with one change, let it settle, then add the next.
