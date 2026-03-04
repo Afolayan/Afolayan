@@ -6,39 +6,50 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 	<head>
-		<BaseHead title={`About | ${SITE_TITLE}`} description="Learn more about Jephthah M." />
+		<BaseHead title={`About | ${SITE_TITLE}`} description="Software engineer, Android developer, and technical writer." />
 	</head>
-	<body>
+	<body class="bg-gray-light dark:bg-gray-dark">
 		<Header />
 		<main class="max-w-4xl mx-auto px-4 py-12 animate-fade-in">
 			<article class="glass p-8 md:p-12">
-				<div class="text-center mb-12">
-					<h1 class="text-4xl md:text-5xl mb-4">About Me</h1>
-					<p class="text-xl text-gray opacity-80 max-w-2xl mx-auto italic">
-						A little bit about who I am and what I do.
-					</p>
-					<hr class="border-gray/10 my-12" />
-				</div>
-				<div class="prose prose-lg dark:prose-invert max-w-none mx-auto leading-relaxed">
+				<h1 class="text-4xl md:text-5xl mb-8">About Me</h1>
+
+				<div class="prose prose-lg dark:prose-invert max-w-none leading-relaxed">
 					<p>
-						I'm a passionate Full-Stack Developer with a focus on building modern, performant web
-						experiences. I enjoy working across the entire stack — from crafting pixel-perfect
-						interfaces to designing robust backend systems.
+						I'm Jephthah, a software engineer based in Nigeria. I've spent most of my career
+						working across the stack — from Android mobile development to web applications — and
+						I enjoy the challenge of building software that people actually want to use.
 					</p>
+
 					<p>
-						With a background in Computer Science and years of professional experience, I specialize
-						in React, Next.js, Node.js, and cloud technologies. I'm always exploring new tools and
-						frameworks to stay at the cutting edge of web development.
+						Most recently, I worked as an Android Engineer at Carbon (One Finance and Investment),
+						where I contributed to the Carbon mobile app. Before that, I've worked on various web
+						and mobile projects that taught me the value of clean architecture, thoughtful testing,
+						and shipping early.
 					</p>
+
+					<h2>What I Write About</h2>
+
 					<p>
-						When I'm not coding, you can find me exploring new technologies, contributing to
-						open-source projects, or sharing knowledge with the developer community.
+						This blog is where I share what I'm learning and thinking about in software engineering.
+						Topics usually include web development, mobile engineering, developer tools, and the
+						occasional post about career growth in tech.
 					</p>
-				</div>
-				<div class="mt-24 pt-12 border-t border-gray/10 text-center">
-					<a href="/" class="btn btn-primary">&larr; Back Home</a>
+
+					<p>
+						I write for two audiences: other developers who might find the content useful, and my
+						future self who will inevitably forget how I solved that one obscure bug.
+					</p>
+
+					<h2>Get in Touch</h2>
+
+					<p>
+						You can find me on <a href="https://www.linkedin.com/in/afolayanseyi">LinkedIn</a>
+						or <a href="https://github.com/Afolayan">GitHub</a>. I'm always open to connecting
+						with other developers and discussing interesting projects.
+					</p>
 				</div>
 			</article>
 		</main>
